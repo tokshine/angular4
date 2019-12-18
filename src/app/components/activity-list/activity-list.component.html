@@ -1,0 +1,29 @@
+<p>
+  activity-list 
+</p>
+
+Total Distance:{{ totalDistance}}
+First Date: {{firstDate|date:'long'}}
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Comments</th>
+      <th>Date</th>
+      <th>Distance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let activity of activities">
+      <td>
+        <a [routerLink] ="['/run', activity.id]">
+          {{ activity.name }}
+        </a>
+      </td>
+      <td>{{ activity.comments }}</td>
+      <td>{{ activity.date | date:"yyyy-MM-dd"}}</td>
+      <td>{{ activity.distance }}</td>
+    </tr>
+  </tbody>
+</table>

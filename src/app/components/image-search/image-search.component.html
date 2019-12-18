@@ -1,0 +1,21 @@
+<p>
+  Pixabay image-search !
+</p>
+<input type="text"  class="search" [(ngModel)]="searchQuery" placeholder="Search for images" >
+<button (click)="searchImages(searchQuery)" type="button" >Find images</button>
+
+<!-- <button (click)="searchImages('new  york')" >Find images</button> -->
+
+<p *ngIf="searching">Fetching data...</p>
+
+<!--not working has to do with angular material <div *ngIf="searching">
+   <md-progress-bar mode="indeterminate"></md-progress-bar>
+</div> -->
+
+<div *ngFor="let image of images" class="image-container">
+ <a href="{{image.webformatURL}}">   <img src="{{image.webformatURL}}" /> </a>
+<p>Tags:{{image.tags}}</p>
+<p>User:{{image.user}}</p>
+<p>Comments:{{image.comments}}</p>
+<p>Likes:{{image.likes}}</p>
+</div>
